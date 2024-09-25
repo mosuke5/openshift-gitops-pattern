@@ -1,0 +1,7 @@
+IMAGE_STREAM_NAMESPACE=ns-env1
+EAP_IMAGE_NAME=jboss-eap74-openjdk8-openshift:7.4.0
+EAP_RUNTIME_IMAGE_NAME=jboss-eap74-openjdk8-runtime-openshift:7.4.0
+SOURCE_REPOSITORY_URL=https://github.com/jboss-developer/jboss-eap-quickstarts
+SOURCE_REPOSITORY_REF=7.4.x
+GALLEON_PROVISION_LAYERS=jaxrs-server
+CONTEXT_DIR=helloworld-html5
