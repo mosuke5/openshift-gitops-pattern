@@ -15,3 +15,5 @@ configMapGenerator:
     disableNameSuffixHash: true
 components:
   - ../../../components/cluster-pt
+generators:
+- templateProcessor.yaml

@@ -1,0 +1,11 @@
+apiVersion: myDevOpsTeam
+kind: TemplateProcessor
+metadata:
+  name: whatever
+  annotations:
+    config.kubernetes.io/function: |
+      exec: 
+        path: ../../../plugins/template-processor.sh      
+spec:
+  templatePath: ../../../base/eap74-basic-s2i-template.yaml
+  templateParamsPath: ./configs/eap74-basic-s2i-template-param.txt
