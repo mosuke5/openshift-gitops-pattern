@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: plugin-test
+spec:
+  project: default
+  destination:
+    namespace: gitops-test
+    server: https://kubernetes.default.svc
+  source:
+    repoURL: https://github.com/k-srkw/openshift-gitops-pattern
+    targetRevision: HEAD
+    path: app-deploy-with-template/argocd-cmp
+    plugin:
+      name: my-plugin-v1.0
+      parameters:
+        - name: params-file
+          string: params/pattern-1.env
