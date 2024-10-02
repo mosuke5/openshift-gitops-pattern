@@ -1,0 +1,9 @@
+apiVersion: kustomize.config.k8s.io/v1alpha1
+kind: Component
+configMapGenerator:
+- envs:
+  - configs/cluster-envs.env
+  name: cluster-envs
+- files:
+  - configs/cluster-configs
+  name: cluster-configs

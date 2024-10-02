@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kustomize-template-plugin-test
+spec:
+  project: default
+  destination:
+    namespace: gitops-test
+    server: https://kubernetes.default.svc
+  source:
+    repoURL: https://github.com/mosuke5/openshift-gitops-pattern
+    targetRevision: HEAD
+    path: app-deploy-with-template/argocd-cmp-kustomize-template-integration
+    plugin:
+      name: kustomize-template-integration-plugin-v1.0
+      parameters:
+        - name: cluster-name
+          string: cluster-pt
+        - name: env-name
+          string: ns-env-1
