@@ -9,7 +9,7 @@ spec:
     server: https://kubernetes.default.svc
   source:
     repoURL: https://github.com/mosuke5/openshift-gitops-pattern
-    targetRevision: HEAD
+    targetRevision: kustomize-template-integration
     path: app-deploy-with-template/argocd-cmp-kustomize-template-integration
     plugin:
       name: kustomize-template-integration-plugin-v1.0
