@@ -8,7 +8,7 @@ spec:
     namespace: gitops-test
     server: https://kubernetes.default.svc
   source:
-    repoURL: https://github.com/mosuke5/openshift-gitops-pattern
+    repoURL: https://github.com/k-srkw/openshift-gitops-pattern
     targetRevision: HEAD
     path: app-deploy-with-template/argocd-cmp-kustomize-template-integration
     plugin:
