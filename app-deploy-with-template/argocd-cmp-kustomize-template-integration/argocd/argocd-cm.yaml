@@ -14,14 +14,14 @@ data:
         command:
           - sh
           - -c
-          - "oc process --param-file=$PARAM_PARAMS_FILE -f . -o yaml --local > base/generated-manifests/app.yaml"
+          - "oc process -f application-template/ -o yaml --local > base/generated-manifests/app.yaml"
       generate:
         command:
           - sh
           - -c
-          - "oc kusotomize overlay/$PARAM_CLUSTER_NAME/$PARAM_ENV_NAME"
-      discover:
-        fileName: "./*.yaml"
+          - "oc kustomize overlays/$PARAM_CLUSTER_NAME/$PARAM_ENV_NAME"
+      #discover:
+      #  fileName: "./*.yaml"
       parameters:
         static:
           - name: cluster-name
