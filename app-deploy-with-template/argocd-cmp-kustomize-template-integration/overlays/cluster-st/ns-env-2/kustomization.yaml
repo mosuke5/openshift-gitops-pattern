@@ -1,0 +1,17 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- ../../../base/
+
+# 環境単位で必要な設定をconfigMapGeneratorを使って生成
+configMapGenerator:
+- envs:
+  - configs/app-envs.env
+  name: app-envs
+- files:
+  - configs/app-configs
+  name: app-configs
+
+# cluster単位で必要な設定をcomponentsを使って読み込み
+components:
+  - ../../../components/cluster-st

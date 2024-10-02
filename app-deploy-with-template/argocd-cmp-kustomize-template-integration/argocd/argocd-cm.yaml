@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: kustomize-template-integration-plugin-config
+data:
+  plugin.yaml: |
+    apiVersion: argoproj.io/v1alpha1
+    kind: ConfigManagementPlugin
+    metadata:
+      name: kustomize-template-integration-plugin
+    spec:
+      version: v1.0
+      init:
+        command:
+          - sh
+          - -c
+          - "oc process -f application-template/ -o yaml --local > base/generated-manifests/app.yaml"
+      generate:
+        command:
+          - sh
+          - -c
+          - "oc kustomize overlays/$PARAM_CLUSTER_NAME/$PARAM_ENV_NAME"
+      #discover:
+      #  fileName: "./*.yaml"
+      parameters:
+        static:
+          - name: cluster-name
+            title: cluster-name
+            required: true
+          - name: env-name
+            title: env-name
+            required: true
